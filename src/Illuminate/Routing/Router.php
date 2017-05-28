@@ -1015,6 +1015,10 @@ class Router implements RegistrarContract, BindingRegistrar
         $this->post('login', 'Auth\LoginController@login');
         $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
+        // Reauthentication Routes...
+        $this->get('reauth', 'Auth\ReauthController@showReauthForm')->name('reauth');
+        $this->post('reauth', 'Auth\ReauthController@reauthenticate');
+
         // Registration Routes...
         $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
         $this->post('register', 'Auth\RegisterController@register');
